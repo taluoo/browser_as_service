@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/taluoo/browser_as_service/issues"
   },
-  "homepage": "https://github.com/taluoo/browser_as_service#readme"
+  "homepage": "https://github.com/taluoo/browser_as_service#readme",
+  "dependencies": {
+    "puppeteer-core": "^2.0.0"
+  }
 }
