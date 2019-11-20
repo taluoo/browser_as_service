@@ -1,0 +1,19 @@
+{
+  "name": "browser_as_service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taluoo/browser_as_service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/taluoo/browser_as_service/issues"
+  },
+  "homepage": "https://github.com/taluoo/browser_as_service#readme"
+}
