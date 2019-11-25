@@ -26,7 +26,7 @@ class Browser {
         }
     }
 
-    async connect(wsEndpoint) {
+    static async connect(wsEndpoint) {
         console.log(`准备连接浏览器实例: ${wsEndpoint}`);
         try {
             return await puppeteer.connect({
