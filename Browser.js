@@ -26,6 +26,18 @@ class Browser {
         }
     }
 
+    async connect(wsEndpoint) {
+        console.log(`准备连接浏览器实例: ${wsEndpoint}`);
+        try {
+            return await puppeteer.connect({
+                'browserWSEndpoint': wsEndpoint
+            });
+        } catch (err) {
+            console.log('connect browser failed:');
+            console.log(err);
+        }
+    }
+
     list() {
         return this._list;
     }
