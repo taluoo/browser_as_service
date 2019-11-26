@@ -1,6 +1,6 @@
 // 使用方法： node cli/index.js config_file_name(default/debug)
 const path = require('path');
-const Browser = require('../Browser');
+const Browser = require('../index');
 
 const config_dir = path.join(__dirname, '../config');
 
