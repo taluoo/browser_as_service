@@ -26,7 +26,7 @@ class Browser {
                 this._list.headless.add(wsEndpoint);
             }
         } catch (e) {
-            console.log('start browser failed: ' + e.message);
+            e.message = 'start browser failed: \n\t' + e.message;
             throw e;
         }
     }
@@ -38,7 +38,7 @@ class Browser {
                 'browserWSEndpoint': wsEndpoint
             });
         } catch (e) {
-            console.log('connect browser failed：' + e.message);
+            e.message = "connect browser failed：\n\t" + e.message;
             throw e; // 抛出异常，交由外层处理
         }
     }
