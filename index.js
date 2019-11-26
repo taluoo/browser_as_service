@@ -14,15 +14,20 @@ class Browser {
      * @return {Promise<void>}
      */
     async start(config) {
-        const browser = await puppeteer.launch(config);
-        browser.on('disconnected', function () {
-            console.log('browser disconnected');
-        });
-        let wsEndpoint = browser.wsEndpoint();
-        if (config.headless === false) {
-            this._list.withhead.add(wsEndpoint);
-        } else {
-            this._list.headless.add(wsEndpoint);
+        try {
+            const browser = await puppeteer.launch(config);
+            browser.on('disconnected', function () {
+                console.log('browser disconnected');
+            });
+            let wsEndpoint = browser.wsEndpoint();
+            if (config.headless === false) {
+                this._list.withhead.add(wsEndpoint);
+            } else {
+                this._list.headless.add(wsEndpoint);
+            }
+        } catch (e) {
+            console.log('start browser failed: ' + e.message);
+            throw e;
         }
     }
 
@@ -32,9 +37,9 @@ class Browser {
             return await puppeteer.connect({
                 'browserWSEndpoint': wsEndpoint
             });
-        } catch (err) {
-            console.log('connect browser failed:');
-            console.log(err);
+        } catch (e) {
+            console.log('connect browser failed：' + e.message);
+            throw e; // 抛出异常，交由外层处理
         }
     }
 
