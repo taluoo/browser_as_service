@@ -31,6 +31,26 @@ class Browser {
         }
     }
 
+    /**
+     * 关闭 wsEndpoint 指向的浏览器
+     * @param wsEndpoint
+     * @return {Promise<void>}
+     */
+    static async close(wsEndpoint) {
+        try {
+            let browser = await Browser.connect(wsEndpoint);
+            await browser.close();
+        } catch (e) {
+            e.message = 'close browser failed: \n\t' + e.message;
+            throw e;
+        }
+    }
+
+    /**
+     * 连接 wsEndpoint 指向的浏览器
+     * @param wsEndpoint
+     * @return {Promise<void>}
+     */
     static async connect(wsEndpoint) {
         console.log(`准备连接浏览器实例: ${wsEndpoint}`);
         try {
